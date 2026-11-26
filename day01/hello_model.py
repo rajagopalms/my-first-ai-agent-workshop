@@ -9,6 +9,7 @@ Usage:
     python day01/hello_model.py "Explain what an LLM is to a DevOps engineer"
 """
 
+import json
 import os
 import sys
 
