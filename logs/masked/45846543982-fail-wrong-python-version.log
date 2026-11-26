@@ -1,0 +1,15 @@
+lint-and-test	Run actions/setup-python@v5	﻿2026-11-26T15:11:23.6692493Z ##[group]Run actions/setup-python@v5
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6692973Z with:
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6693307Z   python-version: 3.31
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6693679Z   check-latest: false
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6697040Z   token: ***
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6697399Z   update-environment: true
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6697798Z   allow-prereleases: false
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6698178Z   freethreaded: false
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.6698536Z ##[endgroup]
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.7811506Z ##[group]Installed versions
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.8464896Z Version 3.31 was not found in the local cache
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.8622703Z (node:2208) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:23.8624464Z (Use `node --trace-deprecation ...` to show where the warning was created)
+lint-and-test	Run actions/setup-python@v5	2026-11-26T15:11:24.2740392Z ##[error]The version '3.31' with architecture 'x64' was not found for Ubuntu 26.04.
+lint-and-test	Run actions/setup-python@v5	The list of all available versions can be found here: https://raw.githubusercontent.com/actions/python-versions/main/versions-manifest.json

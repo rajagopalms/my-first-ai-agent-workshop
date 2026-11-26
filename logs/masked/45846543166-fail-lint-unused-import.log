@@ -1,0 +1,31 @@
+lint-and-test	Run ruff check .	﻿2026-11-26T15:11:35.1252016Z ##[group]Run ruff check .
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1252329Z ^[[36;1mruff check .^[[0m
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1270561Z shell: /usr/bin/bash -e {0}
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1270841Z env:
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1271118Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1271508Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1271913Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1272269Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1272607Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1272948Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1273255Z ##[endgroup]
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1359615Z F401 [*] `json` imported but unused
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1360272Z   --> day01/hello_model.py:12:8
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1360784Z    |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1361092Z 10 | """
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1361349Z 11 |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1361618Z 12 | import json
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1361986Z    |        ^^^^
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1362355Z 13 | import os
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1362627Z 14 | import sys
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1362887Z    |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1363168Z help: Remove unused import: `json`
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1363492Z    |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1363791Z 11 |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1364071Z    - import json
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1364346Z 12 | import os
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1364587Z    |
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1364678Z 
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1364925Z Found 1 error.
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1365252Z [*] 1 fixable with `--fix`.
+lint-and-test	Run ruff check .	2026-11-26T15:11:35.1373223Z ##[error]Process completed with exit code 1.

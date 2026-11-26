@@ -1,0 +1,28 @@
+lint-and-test	Run pytest -q	﻿2026-11-26T15:19:24.7992984Z ##[group]Run pytest -q
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.7993125Z ^[[36;1mpytest -q^[[0m
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8015605Z shell: /usr/bin/bash -e {0}
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8015736Z env:
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8015885Z   pythonLocation: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8016122Z   PKG_CONFIG_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib/pkgconfig
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8016342Z   Python_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8016542Z   Python2_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8016750Z   Python3_ROOT_DIR: /opt/hostedtoolcache/Python/3.12.16/x64
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8016951Z   LD_LIBRARY_PATH: /opt/hostedtoolcache/Python/3.12.16/x64/lib
+lint-and-test	Run pytest -q	2026-11-26T15:19:24.8017122Z ##[endgroup]
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7966515Z F                                                                        [100%]
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7967290Z =================================== FAILURES ===================================
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7967632Z _______________________ test_system_prompt_asks_for_json _______________________
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7967943Z 
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7968215Z     def test_system_prompt_asks_for_json():
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7968573Z >       assert "JSON" in hello_model.SYSTEM_PROMPT, "the system prompt must ask for JSON output"
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7968999Z E       AssertionError: the system prompt must ask for JSON output
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7969536Z E       assert 'JSON' in 'You are a helpful assistant for a DevOps engineer. Answer clearly and briefly, and use DevOps analogies where they help.'
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7970321Z E        +  where 'You are a helpful assistant for a DevOps engineer. Answer clearly and briefly, and use DevOps analogies where they help.' = hello_model.SYSTEM_PROMPT
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7970783Z 
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7970874Z tests/test_prompt.py:10: AssertionError
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7971156Z =========================== short test summary info ============================
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7971811Z FAILED tests/test_prompt.py::test_system_prompt_asks_for_json - AssertionError: the system prompt must ask for JSON output
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7972492Z assert 'JSON' in 'You are a helpful assistant for a DevOps engineer. Answer clearly and briefly, and use DevOps analogies where they help.'
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7973603Z  +  where 'You are a helpful assistant for a DevOps engineer. Answer clearly and briefly, and use DevOps analogies where they help.' = hello_model.SYSTEM_PROMPT
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.7974102Z 1 failed in 0.32s
+lint-and-test	Run pytest -q	2026-11-26T15:19:25.8463948Z ##[error]Process completed with exit code 1.
