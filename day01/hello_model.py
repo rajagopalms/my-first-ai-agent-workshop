@@ -22,7 +22,7 @@ MODEL = os.getenv("MODEL_NAME")
 API_KEY = os.getenv("MODEL_API_KEY")
 
 SYSTEM_PROMPT = (
-    'Answer only in JSON with keys "cause" and "fix". No other text.,'
+    "You are a helpful assistant for a DevOps engineer. Answer clearly and briefly, "
     "and use DevOps analogies where they help."
 )
 
