@@ -3,7 +3,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent.parent / "day01"))
 
-import hello_model  # noqa: E402
+import hello_model
 
 
 def test_system_prompt_asks_for_json():
