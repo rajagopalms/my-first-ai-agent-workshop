@@ -1,8 +1,9 @@
 """Day 1: talk to a model.
 
-Calls a chat model on GitHub Models (free) with the openai SDK and prints
-the answer plus token usage. The same code works against Azure OpenAI /
-Foundry later by changing the base URL, key and model name.
+Calls a chat model through any OpenAI-compatible endpoint and prints the
+answer plus token usage. Works with Azure AI Foundry (Azure OpenAI v1 API)
+and with Ollama on your laptop: only the three .env values change.
+(GitHub Models was retired on 2026-07-30, so it is no longer an option.)
 
 Usage:
     python day01/hello_model.py "Explain what an LLM is to a DevOps engineer"
@@ -16,21 +17,21 @@ from openai import OpenAI
 
 load_dotenv()
 
-ENDPOINT = os.getenv("MODEL_ENDPOINT", "https://models.github.ai/inference")
-MODEL = os.getenv("MODEL_NAME", "openai/gpt-4.1-mini")
-TOKEN = os.getenv("GITHUB_TOKEN")
+ENDPOINT = os.getenv("MODEL_ENDPOINT")
+MODEL = os.getenv("MODEL_NAME")
+API_KEY = os.getenv("MODEL_API_KEY")
 
 SYSTEM_PROMPT = (
-    "You are a senior DevOps engineer. Answer briefly, in plain language, "
+    'Answer only in JSON with keys "cause" and "fix". No other text.,'
     "and use DevOps analogies where they help."
 )
 
 
 def ask(question: str, temperature: float = 0.2, max_tokens: int = 400) -> None:
-    if not TOKEN:
-        sys.exit("GITHUB_TOKEN is not set. Copy .env.example to .env and add your token.")
+    if not (ENDPOINT and MODEL and API_KEY):
+        sys.exit("Set MODEL_ENDPOINT, MODEL_NAME and MODEL_API_KEY in .env (see .env.example).")
 
-    client = OpenAI(base_url=ENDPOINT, api_key=TOKEN)
+    client = OpenAI(base_url=ENDPOINT, api_key=API_KEY)
     response = client.chat.completions.create(
         model=MODEL,
         messages=[
@@ -40,6 +41,11 @@ def ask(question: str, temperature: float = 0.2, max_tokens: int = 400) -> None:
         temperature=temperature,
         max_tokens=max_tokens,
     )
+
+    if isinstance(response, str):
+        # The endpoint answered with plain text or HTML instead of JSON:
+        # usually a wrong endpoint/model name, a token problem, or a proxy page.
+        sys.exit(f"Unexpected reply from {ENDPOINT} (model {MODEL}):\n{response[:800]}")
 
     print(response.choices[0].message.content)
     usage = response.usage
