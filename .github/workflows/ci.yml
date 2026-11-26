@@ -22,3 +22,9 @@ jobs:
       # - run: pytest -q
       #   env:
       #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Smoke test the model script
+        run: python day01/hello_model.py "ping"
+        env:
+          MODEL_ENDPOINT: http://localhost:11434/v1
+          MODEL_NAME: llama3.2
+          MODEL_API_KEY: ${{ secrets.MODEL_API_KY }}
