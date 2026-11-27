@@ -1,0 +1,8 @@
+{
+  "failing_step": "Run ruff check .",
+  "error_type": "lint",
+  "likely_cause": "ruff rule F401: day01/hello_model.py line 12 imports json but never uses it.",
+  "evidence": "F401 [*] `json` imported but unused --> day01/hello_model.py:12:8",
+  "fix": "Delete the line 'import json' from day01/hello_model.py, or run 'ruff check . --fix'.",
+  "confidence": "high"
+}

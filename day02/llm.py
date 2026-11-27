@@ -44,17 +44,26 @@ def _get_client() -> OpenAI:
     return _client
 
 
-def chat(system: str, user: str, temperature: float = 0.2, max_tokens: int = 400) -> Reply:
-    """Send one system message and one user message, return the reply and its usage."""
-    response = _get_client().chat.completions.create(
-        model=os.getenv("MODEL_NAME"),
-        messages=[
+def chat(
+    system: str, user: str, temperature: float = 0.2, max_tokens: int = 400, json_mode: bool = False
+) -> Reply:
+    """Send one system message and one user message, return the reply and its usage.
+
+    json_mode=True makes the model return valid JSON (it cannot emit a token that
+    breaks the syntax). It does not check the keys: validate those yourself.
+    """
+    kwargs = {
+        "model": os.getenv("MODEL_NAME"),
+        "messages": [
             {"role": "system", "content": system},
             {"role": "user", "content": user},
         ],
-        temperature=temperature,
-        max_tokens=max_tokens,
-    )
+        "temperature": temperature,
+        "max_tokens": max_tokens,
+    }
+    if json_mode:
+        kwargs["response_format"] = {"type": "json_object"}
+    response = _get_client().chat.completions.create(**kwargs)
     choice = response.choices[0]
     return Reply(
         text=(choice.message.content or "").strip(),
