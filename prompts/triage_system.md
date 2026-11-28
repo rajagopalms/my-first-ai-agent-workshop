@@ -5,7 +5,7 @@ The JSON object must have exactly these keys:
 
 {
   "failing_step": "<the step name exactly as it appears in the log, for example Run pytest>",
-  "error_type": "<one of: lint, dependency, test, config, secret, unknown>",
+  "category": "<one of: lint, dependency, test, config, secret, unknown>",
   "likely_cause": "<one sentence in plain words>",
   "evidence": "<the one log line that proves the cause, copied exactly>",
   "fix": "<one concrete change that would make the run pass>",
