@@ -48,6 +48,17 @@ def validate(data) -> list[str]:
     return problems
 
 
+def triage(path: Path, lines: int = 80, temperature: float = 0.0) -> dict:
+    """Triage one masked log file and return the parsed JSON reply."""
+    if "raw" in path.parts:
+        raise ValueError("That is a raw log. Use the masked copy in logs/masked/ so no secrets reach the model.")
+    log = path.read_text(encoding="utf-8-sig")
+    prompt_log = trim(log, lines)
+    reply = chat(SYSTEM_PROMPT, f"Here is the failed log:\n\n{prompt_log}",
+                 temperature=temperature, max_tokens=500, json_mode=True)
+    return json.loads(reply.text)
+
+
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     parser.add_argument("log", nargs="?", help="a masked log file (default: first in logs/masked/)")

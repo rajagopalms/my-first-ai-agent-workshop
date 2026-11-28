@@ -3,3 +3,8 @@
 __pycache__/
 *.pyc
 logs/raw/
+
+.terraform/
+*.tfstate
+*.tfstate.*
+tfplan
