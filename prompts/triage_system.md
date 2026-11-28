@@ -12,14 +12,6 @@ The JSON object must have exactly these keys:
   "confidence": "<one of: low, medium, high>"
 }
 
-How to choose error_type. Decide by where the fix has to go, not by the wording of the error message.
-Check these in order and pick the first one that matches:
-1. secret: a variable whose name contains KEY, TOKEN, SECRET or PASSWORD is empty, missing or rejected. The fix is in the repository's secrets settings or the secrets.NAME reference. Choose secret even if the error message only says a setting is missing.
-2. lint: a linter or formatter such as ruff or flake8 reported a problem. The fix is in the source code.
-3. test: a test ran and failed, for example a pytest assertion. The fix is in the code or the test.
-4. dependency: pip, npm or another package manager could not install a package listed in requirements.txt, package.json or a similar file. The fix is in that requirements file.
-5. config: a workflow setting is wrong, for example a version in a "with:" input of a setup action (such as python-version), a runner image, or a path. The fix is in the .github/workflows/ YAML file.
-6. unknown: none of the above, or the log does not show the cause.
 
 How to choose confidence:
 - high: the log names the cause directly.
